@@ -2,8 +2,17 @@
 #include <sstream>
 #include <iomanip>
 
+namespace Rask
+{
+/**
+ * @brief Get unique string id
+ */
 class DeviceID
 {
+    /**
+     * @brief Get the Unique ID string
+     * @return std::string 
+     */
     std::string getUniqueID() const
     {
         std::stringstream stream;
@@ -12,8 +21,19 @@ class DeviceID
         return stream.str();
     }
 public:
+    /**
+     * @brief Unique ID string
+     */
     const std::string id;
+
+    /**
+     * @brief Construct a new Device ID object
+     */
     DeviceID() : id(getUniqueID()) {}
 };
+}
 
-const DeviceID deviceID;
+/**
+ * @brief Global constant instance for DeviceID
+ */
+const Rask::DeviceID DeviceID;

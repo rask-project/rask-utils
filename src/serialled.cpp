@@ -1,8 +1,8 @@
-#include "raskserialled.h"
+#include "serialled.h"
 #include "raskcore.h"
 #include <Arduino.h>
 
-RaskSerialLed::RaskSerialLed(uint8_t pin, unsigned long blinkInterval) : 
+Rask::SerialLed::SerialLed(uint8_t pin, unsigned long blinkInterval) : 
     m_pin(pin)
 {
     pinMode(m_pin, OUTPUT);
@@ -14,29 +14,29 @@ RaskSerialLed::RaskSerialLed(uint8_t pin, unsigned long blinkInterval) :
     m_blinkObject.timeout.connect(&slotBlink);
 }
 
-void RaskSerialLed::on()
+void Rask::SerialLed::on()
 {
     digitalWrite(m_pin, HIGH);
 }
 
-void RaskSerialLed::off()
+void Rask::SerialLed::off()
 {
     digitalWrite(m_pin, LOW);
 }
 
-void RaskSerialLed::blinkOn()
+void Rask::SerialLed::blinkOn()
 {
     m_blinkObject.startTimer();
     RaskCore::addEvent(&m_blinkObject);
 }
 
-void RaskSerialLed::blinkOff()
+void Rask::SerialLed::blinkOff()
 {
     m_blinkObject.stopTimer();
     RaskCore::removeEvent(&m_blinkObject);
 }
 
-void RaskSerialLed::setIntervalBlink(unsigned long interval)
+void Rask::SerialLed::setIntervalBlink(unsigned long interval)
 {
     m_blinkObject.setInterval(interval);
 }

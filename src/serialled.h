@@ -2,21 +2,23 @@
 
 #include <raskobject.h>
 
+namespace Rask
+{
 /**
  * @brief Serial Led - class to send on and off signal to serial pin
  */
-class RaskSerialLed
+class SerialLed
 {
     uint8_t m_pin;
     RaskObject m_blinkObject;
 
 public:
     /**
-     * @brief Construct a new Rask Serial Led object
+     * @brief Construct a new Serial Led object
      * @param pin Output pin
      * @param blinkInterval Interval to blink the led
      */
-    RaskSerialLed(uint8_t pin, unsigned long blinkInterval = 1000);
+    SerialLed(uint8_t pin, unsigned long blinkInterval = 1000);
 
     /**
      * @brief Turn on the led
@@ -45,3 +47,4 @@ private:
 /* private slots */
     RaskSlot<> slotBlink;
 };
+}
