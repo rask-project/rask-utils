@@ -1,0 +1,3 @@
+[submodule "lib/ArduinoUniqueID"]
+	path = lib/ArduinoUniqueID
+	url = https://github.com/ricaun/ArduinoUniqueID.git
