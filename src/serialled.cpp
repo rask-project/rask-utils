@@ -2,7 +2,7 @@
 #include "raskcore.h"
 #include <Arduino.h>
 
-Rask::SerialLed::SerialLed(uint8_t pin, unsigned long blinkInterval) : 
+Rask::SerialLed::SerialLed(uint8_t pin, uint64_t blinkInterval) : 
     m_pin(pin)
 {
     pinMode(m_pin, OUTPUT);
@@ -36,7 +36,7 @@ void Rask::SerialLed::blinkOff()
     RaskCore::removeEvent(&m_blinkObject);
 }
 
-void Rask::SerialLed::setIntervalBlink(unsigned long interval)
+void Rask::SerialLed::setIntervalBlink(uint64_t interval)
 {
     m_blinkObject.setInterval(interval);
 }

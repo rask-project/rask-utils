@@ -18,7 +18,7 @@ public:
      * @param pin Output pin
      * @param blinkInterval Interval to blink the led
      */
-    SerialLed(uint8_t pin, unsigned long blinkInterval = 1000);
+    SerialLed(uint8_t pin, uint64_t blinkInterval = 1000);
 
     /**
      * @brief Turn on the led
@@ -37,11 +37,12 @@ public:
      * @brief Turn off the flashing led
      */
     void blinkOff();
+
     /**
      * @brief Set the Interval Blink object
-     * @param interval unsigned long in ms
+     * @param interval uint64_t in ms
      */
-    void setIntervalBlink(unsigned long interval);
+    void setIntervalBlink(uint64_t interval);
 
 private:
 /* private slots */
