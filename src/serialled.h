@@ -5,7 +5,7 @@
 namespace Rask
 {
 /**
- * @brief Serial Led - class to send on and off signal to serial pin
+ * @brief SerialLed - class to send on and off signal to serial pin
  */
 class SerialLed
 {
@@ -13,6 +13,12 @@ class SerialLed
     RaskObject m_blinkObject;
 
 public:
+    enum class Type
+    {
+        Digital,
+        Analog
+    };
+
     /**
      * @brief Construct a new Serial Led object
      * @param pin Output pin
