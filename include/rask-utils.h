@@ -11,7 +11,10 @@ std::string pointerStr(obj *event)
 {
     const void *address = static_cast<const void *>(event);
     std::stringstream addr;
-    addr << address;
+    if (address == nullptr)
+        addr << "(nullptr)";
+    else
+        addr << address;
     return addr.str();
 }
 
