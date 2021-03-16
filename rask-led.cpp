@@ -43,7 +43,7 @@ int64_t Led::getInterval() const
 
 void Led::blinkOn()
 {
-    xTaskCreate(&blink, "blinkLed", m_stackDepth, this, 1, &m_handle);
+    xTaskCreate(&blink, nullptr, m_stackDepth, this, 1, &m_handle);
 }
 
 void Led::blink(void *p)
