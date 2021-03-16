@@ -1,6 +1,7 @@
 #pragma once
 
 #include "rask-pin.h"
+#include <chrono>
 
 namespace Rask {
 namespace GPIO {
@@ -10,6 +11,10 @@ namespace GPIO {
  */
 class Led : public Pin
 {
+    const uint32_t m_stackDepth;
+    std::chrono::milliseconds m_interval;
+    void* m_handle;
+
 public:
     /**
      * @brief Construct a new Led object
@@ -29,8 +34,14 @@ public:
 
     /**
      * @brief 
+     * @param interval 
      */
-    void blinkOn();
+    template <typename Rep, typename Period>
+    void blinkOn(std::chrono::duration<Rep, Period> interval)
+    {
+        m_interval = std::chrono::milliseconds(interval);
+        blinkOn();
+    }
 
     /**
      * @brief 
@@ -38,10 +49,22 @@ public:
     void blinkOff();
 
     /**
-     * @brief Set the Blink Interval object
-     * 
+     * @brief Get the interval
+     * @return int64_t 
      */
-    void setBlinkInterval();
+    int64_t getInterval() const;
+
+private:
+    /**
+     * @brief 
+     */
+    void blinkOn();
+
+    /**
+     * @brief 
+     * @param parameter 
+     */
+    static void blink(void *parameter);
 };
 
 } // namespace GPIO
