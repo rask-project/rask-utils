@@ -1,7 +1,7 @@
-#include <iostream>
 #include "rask-utils.h"
 
-void func(void)
-{
+namespace Rask {
+namespace Utils {
 
-}
+} // Utils
+} // Rask
